@@ -36,6 +36,7 @@ MIT
 [web-finished]: https://prop-tc39.now.sh/finished
 [web-active]: https://prop-tc39.now.sh/active
 [web-proposed]: https://prop-tc39.now.sh/proposed
+[web-proposals]: https://prop-tc39.now.sh/proposals
 [web-proposals-finished]: https://prop-tc39.now.sh/proposals/finished
 [web-proposals-active]: https://prop-tc39.now.sh/proposals/active
 [web-proposals-proposed]: https://prop-tc39.now.sh/proposals/proposed
