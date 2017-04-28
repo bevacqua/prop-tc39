@@ -1,0 +1,27 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "array-callback-return": "error",
+    "curly": "error",
+    "eqeqeq": "error",
+    "handle-callback-err": "error",
+    "global-require": "error",
+    "no-console": "warn",
+    "no-constant-condition": 0,
+    "no-else-return": "error",
+    "no-prototype-builtins": "error",
+    "no-unsafe-negation": "error",
+    "no-shadow": ["error", { "allow": ["next", "done", "err"] }],
+    "no-shadow-restricted-names": "error"
+  }
+}

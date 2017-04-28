@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title TC39 Proposals
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Bitter,Source+Sans+Pro,Source+Code+Pro')
+    link(rel='stylesheet', type='text/css', href='/client.css')
+  body
+    main
+      article.pp-proposals
+        header.pp-header
+          h1.pp-header-text TC39 Proposals
+
+        each proposal in proposals
+          section.pp-proposal
+            span.pp-stage
+              span.pp-stage-number Stage #{ proposal.stage }
+              if proposal.readyToAdvance
+                span.pp-stage-ready(title='Champions deem ready for Stage ' + (proposal.stage + 1)) 🚀
+
+            if proposal.href
+              h2.pp-title
+                a.pp-title-link(href=proposal.href)!=proposal.titleHtml
+            else
+              h2.pp-title!=proposal.titleHtml
+
+            ul.pp-champions
+              each champion in proposal.champions
+                li.pp-champion=champion
+
+            if proposal.meeting
+              - meetingText = 'Formalized ' + moment(proposal.meeting).format('MMMM YYYY')
+              if proposal.meetingHref
+                a.pp-meeting(href=proposal.meetingHref)=meetingText
+              else
+                span.pp-meeting=meetingText
+
+            if proposal.publicationYear
+              span.pp-publication ES#{ proposal.publicationYear }
+
+    footer.ff-footer
+      span='Maintained by '
+      a(href='https://twitter.com/nzgb') @nzgb
+      span='. Source code on '
+      a(href='https://github.com/bevacqua/prop-tc39') GitHub
+      span .
+
+    script(src='/client.js')

@@ -1,0 +1,123 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(
+    to top left,
+    rgba(255,255,255,0.2) 0,
+    rgba(255,255,255,0.1) 40%,
+    rgba(255,255,255,0.3) 80%,
+    rgba(255,255,255,0.2) 100%
+  ), linear-gradient(
+    to bottom,
+    rgba(121, 47, 228, 0.5) 0,
+    rgba(126, 216, 191, 0.3) 30%,
+    rgba(121, 47, 228, 0.3) 50%,
+    rgba(126, 216, 191, 0.5) 80%,
+    rgba(121, 47, 228, 0.1) 100%
+  ) no-repeat;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Bitter', sans-serif;
+}
+code {
+  font-family: 'Source Code Pro', monospace;
+}
+
+a {
+  color: #222;
+  box-shadow: inset 0 -5px 0 0 rgba(126, 216, 191, 0.5);
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+a:hover {
+  background-color: rgba(126, 216, 191, 0.5);
+  color: rgba(45, 85, 74, 1);
+}
+
+.pp-proposals {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.pp-header {
+  text-align: center;
+}
+.pp-header-text {
+  display: inline-block;
+  box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.pp-proposal {
+  padding: 20px;
+}
+.pp-proposal:nth-child(even) {
+  background: rgba(0, 0, 0, 0.05)
+}
+
+.pp-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.pp-champions {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.pp-champion {
+  display: inline-block;
+  padding: 2px 4px;
+  background: rgba(243, 246, 70, 0.2);
+  box-shadow: inset 0 -5px 0 0 rgba(243, 246, 70, 0.7);
+  color: #333;
+  margin-right: 5px;
+}
+
+.pp-stage {
+  display: inline-block;
+  background: rgba(41, 63, 180, 0.3);
+  box-shadow: inset 0 -5px 0 0 rgba(41, 63, 180, 0.5);
+  color: #fff;
+  margin-right: 10px;
+  padding: 2px 4px;
+}
+
+.pp-stage-ready {
+  margin-left: 5px;
+}
+
+.pp-meeting {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.pp-publication {
+  display: inline-block;
+  background: rgba(237, 154, 30, 0.3);
+  box-shadow: inset 0 -5px 0 0 rgba(237, 154, 30, 0.9);
+  padding: 2px 4px;
+}
+
+.ff-footer {
+  background: rgba(126, 216, 191, 0.1);
+  text-align: center;
+  padding: 20px;
+}
