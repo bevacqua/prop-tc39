@@ -26,6 +26,7 @@ body {
     rgba(121, 47, 228, 0.1) 100%
   ) no-repeat;
   font-family: 'Source Sans Pro', sans-serif;
+  min-height: 1vh;
 }
 h1,
 h2,
