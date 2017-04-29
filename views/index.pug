@@ -3,7 +3,7 @@ html
   head
     title TC39 Proposals
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Bitter,Source+Sans+Pro,Source+Code+Pro')
-    link(rel='stylesheet', type='text/css', href='/client.css')
+    link(rel='stylesheet', href='/client.css')
   body
     main
       article.pp-proposals
@@ -15,7 +15,7 @@ html
             span.pp-stage
               span.pp-stage-number Stage #{ proposal.stage }
               if proposal.readyToAdvance
-                span.pp-stage-ready(title='Champions deem ready for Stage ' + (proposal.stage + 1)) 🚀
+                span.pp-stage-ready(title='Champions deemed ready for Stage ' + (proposal.stage + 1)) 🚀
 
             if proposal.href
               h2.pp-title
