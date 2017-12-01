@@ -1,4 +1,4 @@
-const { sortBy } = require('lodash')
+const { sortBy, flatten } = require('lodash')
 const { concurrent } = require('contra')
 const moment = require('moment')
 const request = require('request')
@@ -51,28 +51,33 @@ function fetch(resource, parse, done) {
 
 function parseActive(html) {
   const $ = cheerio.load(html)
+  const proposals = $('#readme table')
+    .toArray()
+    .map((table, i) => {
+      const stage = 3 - i // stage 3 -> stage 1
+      return $(table)
+        .find('tbody tr')
+        .toArray()
+        .map(tr => {
+          const $tr = $(tr)
+          const readyToAdvance = $tr.find('td:nth-child(1)').text().trim() === '🚀'
+          const $title = $tr.find('td:nth-child(2)')
+          const $titleLink = $title.find('a')
+          const titleHtml = ($titleLink.length ? $titleLink : $title).html().trim()
+          const href = $titleLink.attr('href')
+          const champions = $tr.find('td:nth-child(3)').text().trim().split(rchampionseparator)
+          return {
+            titleHtml,
+            href,
+            stage,
+            champions,
+            readyToAdvance
+          }
+        })
+    })
+  
   return sortProposals(
-    $('#readme table')
-      .eq(0)
-      .find('tbody tr')
-      .toArray()
-      .map(tr => {
-        const $tr = $(tr)
-        const readyToAdvance = $tr.find('td:nth-child(1)').text().trim() === '🚀'
-        const $title = $tr.find('td:nth-child(2)')
-        const $titleLink = $title.find('a')
-        const titleHtml = ($titleLink.length ? $titleLink : $title).html().trim()
-        const href = $titleLink.attr('href')
-        const champions = $tr.find('td:nth-child(3)').text().trim().split(rchampionseparator)
-        const stage = parseInt($tr.find('td:nth-child(4)').text().trim())
-        return {
-          titleHtml,
-          href,
-          stage,
-          champions,
-          readyToAdvance
-        }
-      })
+    flatten(proposals)
   )
 }
 
