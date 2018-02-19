@@ -56,7 +56,7 @@ function parseStageTable($, table, stage) {
     .map(tr => {
       const $tr = $(tr)
       const readyToAdvance = $tr.find('td:nth-child(1)').text().trim() === '🚀'
-      const $title = $tr.find('td:nth-child(2)')
+      const $title = $tr.find(`td:nth-child(${stage === 4 ? 1 : 2})`)
       const $titleLink = $title.find('a')
       const titleHtml = ($titleLink.length ? $titleLink : $title).html().trim()
       const href = $titleLink.attr('href')
@@ -68,12 +68,12 @@ function parseStageTable($, table, stage) {
         champions,
         readyToAdvance
       }
-      
+
       // finished proposals only
       if (stage === 4) {
-        const meeting = moment.utc($tr.find('td:nth-child(3)').text().trim(), 'MMMM YYYY')
-        const meetingHref = $tr.find('td:nth-child(3) a').attr('href')
-        const publicationYear = parseInt($tr.find('td:nth-child(4)').text().trim())
+        const meeting = moment.utc($tr.find('td:nth-child(4)').text().trim(), 'MMMM YYYY')
+        const meetingHref = $tr.find('td:nth-child(4) a').attr('href')
+        const publicationYear = parseInt($tr.find('td:nth-child(5)').text().trim())
         proposalMeta.meeting = meeting
         proposalMeta.meetingHref = meetingHref
         proposalMeta.publicationYear = publicationYear
@@ -87,7 +87,7 @@ function parseActive(html) {
   const proposals = $('#readme table')
     .toArray()
     .map((table, index) => parseStageTable($, table, 3 - index))
-  
+
   return sortProposals(
     flatten(proposals)
   )
