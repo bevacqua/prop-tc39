@@ -57,7 +57,7 @@ function parseStageTable($, table, stage) {
       const $tr = $(tr)
       const readyToAdvance = $tr.find('td:nth-child(1)').text().trim() === '🚀'
       const $title = $tr.find(`td:nth-child(${stage === 4 ? 1 : 2})`)
-      const $titleLink = $title.find('a')
+      const $titleLink = stage === 4 ? $title.find('a') : $tr.find('a')
       const titleHtml = ($titleLink.length ? $titleLink : $title).html().trim()
       const href = $titleLink.attr('href')
       const champions = $tr.find('td:nth-child(3)').text().trim().split(rchampionseparator)
